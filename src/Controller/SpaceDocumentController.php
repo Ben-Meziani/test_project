@@ -36,7 +36,6 @@ class SpaceDocumentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $spaceDocumentRepository->add($spaceDocument);
             self::uploadImage($form, $spaceDocument);
             $spaceDocumentRepository->add($spaceDocument);
             return $this->redirectToRoute('app_space_document_index', [], Response::HTTP_SEE_OTHER);
